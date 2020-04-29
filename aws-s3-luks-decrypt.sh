@@ -2,7 +2,8 @@
 
 #Requirements
 #https://github.domain.com/domain/aws-portal-cli/releases/tag/v1.0.0
-#https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+#https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html public AWS client
+#https://github.com/mdp/qrterminal to generate qrcodes in the terminal
 #decrypt.sh script
   ## # # Decrypt using current storage_password
   ##storage_password="enter_password_here"
@@ -23,6 +24,11 @@ hostname_file_cut=`echo $hostname_file | cut -d " " -f4`
 #get decrypted key of escrowed file
 hostname_escrow=`aws s3 cp s3://sec-luks/$hostname_file_cut -`
 
+
 #decrypt encrypted key
-echo "$hostname Decryption Key: "
-~/./decrypt.sh $hostname_escrow
+echo -ne "$hostname Decryption Key: "
+decryption_key=`~/./decrypt.sh $hostname_escrow`
+echo $decryption_key
+
+#generate QR Code to scan using 2D barcode scanner
+~/qrterminal/qrterminal $decryption_key
