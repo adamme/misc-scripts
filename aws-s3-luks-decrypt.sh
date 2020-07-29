@@ -3,7 +3,9 @@
 #Requirements
 #https://github.domain.com/domain/aws-portal-cli/releases/tag/v1.0.0
 #https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html public AWS client
-#https://github.com/mdp/qrterminal to generate qrcodes in the terminal
+#Linux qrencode package https://linux.die.net/man/1/qrencode
+#Alternatively 3rd party tool https://github.com/mdp/qrterminal to generate qrcodes in the terminal
+
 #decrypt.sh script
   ## # # Decrypt using current storage_password
   ##storage_password="enter_password_here"
@@ -31,4 +33,4 @@ decryption_key=`~/./decrypt.sh $hostname_escrow`
 echo $decryption_key
 
 #generate QR Code to scan using 2D barcode scanner
-~/qrterminal/qrterminal $decryption_key
+qrencode -m 2 -t utf8 $decryption_key
