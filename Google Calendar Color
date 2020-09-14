@@ -9,27 +9,30 @@
 8. event source: from calendar - calendar details: calendar updated
 */
 
-function ColorEvents() {
-​
+function ColorEvents() 
+{
   var today = new Date();
   var nextweek = new Date();
   nextweek.setDate(nextweek.getDate() + 7);
   Logger.log(today + " " + nextweek);
-​
   var calendars = CalendarApp.getAllOwnedCalendars();
   Logger.log("found number of calendars: " + calendars.length);
-​
-  for (var i=0; i<calendars.length; i++) {
+  for (var i=0; i<calendars.length; i++) 
+  {
     var calendar = calendars[i];
     var events = calendar.getEvents(today, nextweek);
-    for (var j=0; j<events.length; j++) {
+    for (var j=0; j<events.length; j++) 
+    {
       var e = events[j];
       var title = e.getTitle();
-      if (title == "block") {
+      if (title == "block") || (title == "Busy")
+      {
         e.setColor(CalendarApp.EventColor.GREEN);
-      } else if (title.startsWith("Adamme / ") || title.endsWith(" / Henri")) {
+      } else if (title.startsWith("Adamme / ") || title.endsWith(" / Henri")) 
+      {
         e.setColor(CalendarApp.EventColor.BLUE);
-      } else if (title == "Lunch: no meetings/interviews") {
+      } else if (title == "Lunch: no meetings/interviews") 
+      {
         e.setColor(CalendarApp.EventColor.GRAPHITE);
       }
     }
