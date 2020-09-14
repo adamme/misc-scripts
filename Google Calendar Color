@@ -27,10 +27,10 @@ function ColorEvents() {
       var title = e.getTitle();
       if (title == "block") {
         e.setColor(CalendarApp.EventColor.GREEN);
-      } else if (title.startsWith("Henri / ") || title.endsWith(" / Henri")) {
+      } else if (title.startsWith("Adamme / ") || title.endsWith(" / Henri")) {
         e.setColor(CalendarApp.EventColor.BLUE);
       } else if (title == "Lunch: no meetings/interviews") {
-        e.setColor(CalendarApp.EventColor.GREEN);
+        e.setColor(CalendarApp.EventColor.GRAPHITE);
       }
     }
   }
