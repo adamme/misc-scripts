@@ -27,17 +27,17 @@ function ColorEvents()
     {
       var e = events[j];
       var title = e.getTitle();
-      if (title.startsWith("block" || "Busy" || "OOO" || "Lunch"))
+      if (title.startsWith("Block") || title.startsWith("Busy") || title.startsWith("OOO") || title.startsWith("Lunch"))
       {
         e.setColor(CalendarApp.EventColor.GRAY);
-      }
-      else if (title.startsWith("Test"))
-      {
-        e.setColor(CalendarApp.EventColor.CYAN);
       } 
-      else if (title.startsWith("Adamme / " || "Adamme/" || "Adamme|" || "Adamme |") || title.endsWith(" / Adamme" || "/Adamme" || "| Adamme" || "|Adamme" || "1:1")) 
+      else if (title.startsWith("Adamme /") || title.startsWith("Adamme/") || title.startsWith("Adamme|") || title.startsWith("Adamme |"))
       {
-        e.setColor(CalendarApp.EventColor.PALE_BLUE);
+        e.setColor(CalendarApp.EventColor.PALE_GREEN);
+      }
+      else if (title.endsWith("/ Adamme") || title.endsWith("/Adamme") || title.endsWith("|Adamme") || title.endsWith("| Adamme") || title.endsWith("1:1"))
+      {
+        e.setColor(CalendarApp.EventColor.PALE_GREEN);
       } 
     }
   }
