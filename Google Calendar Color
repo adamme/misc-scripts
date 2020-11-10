@@ -15,9 +15,9 @@ function ColorEvents()
 {
   var today = new Date();
   var nextweek = new Date();
-  nextweek.setDate(nextweek.getDate() + 7);
+  nextweek.setDate(nextweek.getDate() + 14);
   Logger.log(today + " " + nextweek);
-  var calendars = CalendarApp.getCalendarsByName("adamme@domain.com");
+  var calendars = CalendarApp.getCalendarsByName("adamme.kearney@domain.com");
   Logger.log("found number of calendars: " + calendars.length);
   for (var i=0; i<calendars.length; i++) 
   {
@@ -27,7 +27,7 @@ function ColorEvents()
     {
       var e = events[j];
       var title = e.getTitle();
-      if (title.startsWith("Block") || title.startsWith("Busy") || title.startsWith("OOO") || title.startsWith("Lunch"))
+      if (title.startsWith("Block") || title.startsWith("Busy") || title.startsWith("OOO") || title.startsWith("Lunch") || title.startsWith("No Meeting") || title.startsWith("Tickets and Emails"))
       {
         e.setColor(CalendarApp.EventColor.GRAY);
       } 
